@@ -15,8 +15,10 @@ public class EmpController {
     @Autowired
     private EmpService empService;
     @GetMapping
-    public List<Employee> listAll(){
-        return empService.listAllEmployees();
+    public List<Employee> listAll() {
+        // 兜底：防止 Service 返回 null
+        List<Employee> list = empService.listAllEmployees();
+        return list == null ? List.of() : list;
     }
 
 }

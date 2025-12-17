@@ -1,7 +1,11 @@
 package cn.cloverclc.service.Interface;
 
 import cn.cloverclc.entity.Employee;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
+
+
 
 public interface EmpService {
     /**

@@ -13,14 +13,14 @@ import java.util.Date;
 @NoArgsConstructor
 @TableName("emp")
 public class Employee {
-    private Integer eno;
-    private String name;
+    private Integer empno;
+    private String ename;
     private String job;
     private Integer mgr;
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date hiredate;
     private Double sal;
     private Double comm;
-    private Integer dno;
+    private Integer deptno;
 
 }
