@@ -11,6 +11,11 @@ import java.util.List;
 
 @Mapper
 public interface EmployeeDao extends BaseMapper<Employee> {
+//    检索全部
+
     @Select("SELECT * FROM emp")
     List<Employee> selectAllEmployee();
+
+    @Select("SELECT * FROM emp WHERE empno = #{empno};")
+    Employee selectEmployeeByEmpno(Integer empno);
 }

@@ -22,8 +22,8 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public Employee getEmployeeById(Long id) {
-        return null;
+    public Employee getEmployeeById(Integer id) {
+        return employeeDao.selectEmployeeByEmpno(id);
     }
 
     @Override

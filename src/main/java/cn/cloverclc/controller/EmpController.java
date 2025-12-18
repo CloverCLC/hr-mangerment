@@ -3,9 +3,7 @@ package cn.cloverclc.controller;
 import cn.cloverclc.entity.Employee;
 import cn.cloverclc.service.Interface.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,10 @@ public class EmpController {
         // 兜底：防止 Service 返回 null
         List<Employee> list = empService.listAllEmployees();
         return list == null ? List.of() : list;
+    }
+    @GetMapping("/{id}")
+    public Employee getEmpById(@PathVariable Integer id) {
+        return empService.getEmployeeById(id);
     }
 
 }

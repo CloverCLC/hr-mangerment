@@ -19,7 +19,7 @@ public interface EmpService {
      * @param id 员工ID
      * @return 员工信息（null表示不存在）
      */
-    Employee getEmployeeById(Long id);
+    Employee getEmployeeById(Integer id);
 
     /**
      * 删除员工

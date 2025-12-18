@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 
 public class Department {
-    private Integer dno;
+    private int deptno;
     private String dname;
-    private String dlocation;
+    private String loc;
 
 }
