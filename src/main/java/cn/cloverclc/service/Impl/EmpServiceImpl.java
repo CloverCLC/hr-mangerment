@@ -10,29 +10,37 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
+
 public class EmpServiceImpl implements EmpService {
 
     @Autowired
     private EmployeeDao employeeDao;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Employee> listAllEmployees() {
+
         return employeeDao.selectAllEmployee();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Employee getEmployeeById(Integer id) {
         return employeeDao.selectEmployeeByEmpno(id);
     }
 
     @Override
-    public boolean removeEmployeeById(Long id) {
-        return false;
+    public boolean addEmployee(Employee employee) {
+        return employeeDao.insertEmployee(employee);
     }
 
     @Override
-    public boolean saveOrUpdateEmployee(Employee employee) {
-        return false;
+    public boolean removeEmployeeById(Integer id) {
+        return employeeDao.deleteEmployeeByEmpno(id);
+    }
+
+    @Override
+    public boolean updateEmployee(Employee employee) {
+        return employeeDao.updateEmployee(employee);
     }
 }
