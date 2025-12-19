@@ -22,3 +22,23 @@
 2025-12-19T12:08:13.804+08:00  INFO 115396 --- [http-nio-8080-exec-2] c.cloverclc.service.Impl.EmpServiceImpl  : 开始查询empno为 8014 的员工
 2025-12-19T12:08:13.808+08:00  INFO 115396 --- [http-nio-8080-exec-2] c.cloverclc.service.Impl.EmpServiceImpl  : 成功查询到empno为 8014 的员工
 2025-12-19T12:08:13.808+08:00  INFO 115396 --- [http-nio-8080-exec-2] c.cloverclc.service.Impl.EmpServiceImpl  : 查询完成
+2025-12-19T12:17:20.576+08:00  INFO 94224 --- [main] cn.cloverclc.HrApp                       : Starting HrApp using Java 17.0.12 with PID 94224 (E:\Develop\code\hr-mangerage\target\classes started by CloverCLC in E:\Develop\code\hr-mangerage)
+2025-12-19T12:17:20.577+08:00  INFO 94224 --- [main] cn.cloverclc.HrApp                       : No active profile set, falling back to 1 default profile: "default"
+2025-12-19T12:17:21.507+08:00  INFO 94224 --- [main] cn.cloverclc.HrApp                       : Started HrApp in 1.202 seconds (process running for 1.527)
+2025-12-19T12:17:33.917+08:00  INFO 94224 --- [http-nio-8080-exec-1] c.cloverclc.service.Impl.EmpServiceImpl  : 数据库删除 0 行
+2025-12-19T12:17:40.024+08:00  INFO 94224 --- [http-nio-8080-exec-2] c.cloverclc.service.Impl.EmpServiceImpl  : 数据库修改 1 行
+2025-12-19T12:17:54.764+08:00  INFO 94224 --- [http-nio-8080-exec-3] c.cloverclc.service.Impl.EmpServiceImpl  : 数据库修改 1 行
+2025-12-19T12:18:01.044+08:00  INFO 94224 --- [http-nio-8080-exec-4] c.cloverclc.service.Impl.EmpServiceImpl  : 数据库修改 1 行
+2025-12-19T12:18:31.271+08:00  INFO 94224 --- [http-nio-8080-exec-5] c.cloverclc.service.Impl.EmpServiceImpl  : 数据库修改 1 行
+2025-12-19T12:49:08.799+08:00  INFO 55708 --- [main] cn.cloverclc.HrApp                       : Starting HrApp using Java 17.0.12 with PID 55708 (E:\Develop\code\hr-mangerage\target\classes started by CloverCLC in E:\Develop\code\hr-mangerage)
+2025-12-19T12:49:08.801+08:00  INFO 55708 --- [main] cn.cloverclc.HrApp                       : No active profile set, falling back to 1 default profile: "default"
+2025-12-19T12:49:09.734+08:00  INFO 55708 --- [main] cn.cloverclc.HrApp                       : Started HrApp in 1.217 seconds (process running for 1.561)
+2025-12-19T12:49:18.877+08:00  INFO 55708 --- [http-nio-8080-exec-1] c.cloverclc.service.Impl.EmpServiceImpl  : 开始删除员工
+2025-12-19T12:49:19.011+08:00  INFO 55708 --- [http-nio-8080-exec-1] c.cloverclc.service.Impl.EmpServiceImpl  : 数据库删除 0 行
+2025-12-19T12:49:19.013+08:00  INFO 55708 --- [http-nio-8080-exec-1] c.cloverclc.service.Impl.EmpServiceImpl  : Done
+2025-12-19T12:49:40.474+08:00  INFO 55708 --- [http-nio-8080-exec-4] c.cloverclc.service.Impl.EmpServiceImpl  : 开始获取部门列表
+2025-12-19T12:49:40.484+08:00  INFO 55708 --- [http-nio-8080-exec-4] c.cloverclc.service.Impl.EmpServiceImpl  : 获取部门列表完成，共查询到 9 条部门记录
+2025-12-19T12:49:40.485+08:00  INFO 55708 --- [http-nio-8080-exec-4] c.cloverclc.service.Impl.EmpServiceImpl  : Done
+2025-12-19T12:49:42.389+08:00  INFO 55708 --- [http-nio-8080-exec-7] c.cloverclc.service.Impl.EmpServiceImpl  : 开始查询deptno为 20 的部门
+2025-12-19T12:49:42.390+08:00  INFO 55708 --- [http-nio-8080-exec-7] c.cloverclc.service.Impl.EmpServiceImpl  : 成功查询到deptno为 20 的部门
+2025-12-19T12:49:42.390+08:00  INFO 55708 --- [http-nio-8080-exec-7] c.cloverclc.service.Impl.EmpServiceImpl  : Done
