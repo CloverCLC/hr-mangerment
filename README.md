@@ -7,7 +7,7 @@
 4. 添加了日志打印
 ### 问题
 1. MyBatis-Plus 与 Spring Boot 3.x 版本兼容性问题
-   参考https://blog.csdn.net/qq_57682309/article/details/149295836解决
+   参考https://blog.csdn.net/qq_57682309/article/details/149295836 解决
 2. delete和insert方法不成功
    @Transactional(readOnly = true)只读写在了最外层
    外层删掉写到里面解决
