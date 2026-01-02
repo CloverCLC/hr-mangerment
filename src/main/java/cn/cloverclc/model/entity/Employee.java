@@ -36,8 +36,7 @@ public class Employee {
     private String mobile;
     @TableField(value ="emergency_contact",typeHandler = JacksonTypeHandler.class)
     private String contact;
-//    @TableLogic
-//    private Boolean isdel;
+    private Boolean isdel;
 
     @TableField(exist = false)
     private String dname;

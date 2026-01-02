@@ -1,6 +1,5 @@
 package cn.cloverclc.service.Impl;
 
-import cn.cloverclc.annotation.LogRecord;
 import cn.cloverclc.dao.EmployeeDao;
 import cn.cloverclc.model.entity.Employee;
 import cn.cloverclc.service.EmpService;
