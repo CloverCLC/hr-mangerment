@@ -72,7 +72,7 @@ public class EmpController {
     @LogRecord
     public Result<IPage<Employee>> getEmpPage(@RequestParam(defaultValue = "1") Integer current,
                                               @RequestParam(defaultValue = "10") Integer size) {
-        IPage result = empService.getUserPage(current, size);
+        IPage result = empService.selectEmployeePage(current, size);
         return Result.success(result);
     }
 

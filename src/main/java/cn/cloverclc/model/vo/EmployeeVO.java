@@ -1,5 +1,7 @@
 package cn.cloverclc.model.vo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -8,7 +10,10 @@ import java.util.List;
 
 @Data
 @Schema(description = "员工信息VO")
-public class EmployeeVO {
+public class  EmployeeVO {
+    @Schema(description = "员工ID")
+    private Integer empno;
+
     @Schema(description = "员工姓名")
     private String name;
 
@@ -20,6 +25,7 @@ public class EmployeeVO {
 
     @Schema(description = "薪资等级")
     private Integer salgrade;
+
 
     @Schema(description = "下级员工姓名列表")
     private List<String> subordinateNames;

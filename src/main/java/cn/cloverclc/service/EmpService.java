@@ -7,5 +7,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 
 public interface EmpService extends IService<Employee> {
-    IPage<Employee> getUserPage(Integer current, Integer size);
+    IPage<EmployeeVO> selectEmployeePage(Integer current, Integer size);
 }

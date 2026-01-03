@@ -6,6 +6,8 @@ spring:
     password: 123
 
   mybatis-plus:
+    mapper-locations: classpath:mapper/*.xml
+    type-handlers-package: cn.cloverclc.handler
     configuration:
       map-underscore-to-camel-case: true
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,6 +1,7 @@
-package cn.cloverclc.model.entity;
+package cn.cloverclc.handler;
 
 
+import cn.cloverclc.model.entity.EmpStatus;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedTypes;

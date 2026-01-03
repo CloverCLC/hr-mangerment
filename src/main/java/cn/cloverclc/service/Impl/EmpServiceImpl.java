@@ -2,6 +2,7 @@ package cn.cloverclc.service.Impl;
 
 import cn.cloverclc.dao.EmployeeDao;
 import cn.cloverclc.model.entity.Employee;
+import cn.cloverclc.model.vo.EmployeeVO;
 import cn.cloverclc.service.EmpService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -15,11 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class EmpServiceImpl extends ServiceImpl<EmployeeDao, Employee> implements EmpService {
 
-    @Override
 
-    public IPage<Employee> getUserPage(Integer current, Integer size) {
-        IPage<Employee> page = new Page<>(current, size);
-        IPage<Employee> EmpPage = this.page(page);
-        return EmpPage;
+    @Override
+    public IPage<EmployeeVO> selectEmployeePage(Integer current, Integer size) {
+        Page<EmployeeVO> page = new Page<>(current, size);
+        return this.baseMapper.selectEmployeePage(page);
     }
 }
