@@ -5,6 +5,8 @@ import cn.cloverclc.model.entity.Employee;
 
 import cn.cloverclc.common.Result;
 
+import cn.cloverclc.model.vo.DeptVO;
+import cn.cloverclc.model.vo.EmployeeVO;
 import cn.cloverclc.service.Impl.EmpServiceImpl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import jakarta.annotation.Resource;
@@ -48,7 +50,7 @@ public class EmpController {
 
     }
 
-    @PutMapping("/del/{id}")
+    @PostMapping("/del/{id}")
     @LogRecord
     public Result<Void> delEmp(@PathVariable Integer id) {
         boolean result = empService.removeById(id);
@@ -58,7 +60,7 @@ public class EmpController {
         return Result.error("删除失败");
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     @LogRecord
     public Result<Void> updateEmp(@RequestBody Employee emp) {
         boolean result = empService.updateById(emp);
@@ -70,9 +72,17 @@ public class EmpController {
     }
     @GetMapping("/page")
     @LogRecord
-    public Result<IPage<Employee>> getEmpPage(@RequestParam(defaultValue = "1") Integer current,
-                                              @RequestParam(defaultValue = "10") Integer size) {
-        IPage result = empService.selectEmployeePage(current, size);
+    public Result<IPage<EmployeeVO>> getEmpPage(@RequestParam(defaultValue = "1") Integer current,
+                                                @RequestParam(defaultValue = "10") Integer size) {
+        IPage<EmployeeVO> result = empService.selectEmployeePage(current, size);
+        return Result.success(result);
+    }
+    @GetMapping("/bydept")
+    @LogRecord
+    public Result<IPage<DeptVO>> getEmpByDept(@RequestParam(defaultValue = "1") Integer current,
+                                                @RequestParam(defaultValue = "10") Integer size,
+                                                @RequestParam Integer deptno){
+        IPage<DeptVO> result = empService.selectDeptPage(current, size,deptno);
         return Result.success(result);
     }
 
