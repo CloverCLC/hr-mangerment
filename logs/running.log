@@ -408,3 +408,6 @@ java.lang.IllegalArgumentException: 无效的部门编号，无法删除未分�
 2026-01-05T15:14:52.549+08:00  INFO 4836 --- [http-nio-8080-exec-9] cn.cloverclc.aop.LogAspect               : 目标方法 getEmpPage 正常返回
 2026-01-05T15:14:52.549+08:00  INFO 4836 --- [http-nio-8080-exec-9] cn.cloverclc.aop.LogAspect               : 目标方法 getEmpPage 执行完毕
 2026-01-05T15:14:52.549+08:00  INFO 4836 --- [http-nio-8080-exec-9] cn.cloverclc.aop.LogAspect               : 目标方法执行耗时：14 毫秒
+2026-01-05T15:15:23.468+08:00  INFO 51600 --- [main] cn.cloverclc.HrApp                       : Starting HrApp using Java 17.0.12 with PID 51600 (E:\Develop\code\hr-mangerage\target\classes started by CloverCLC in E:\Develop\code\hr-mangerage)
+2026-01-05T15:15:23.470+08:00  INFO 51600 --- [main] cn.cloverclc.HrApp                       : No active profile set, falling back to 1 default profile: "default"
+2026-01-05T15:15:24.675+08:00  INFO 51600 --- [main] cn.cloverclc.HrApp                       : Started HrApp in 1.45 seconds (process running for 1.791)
