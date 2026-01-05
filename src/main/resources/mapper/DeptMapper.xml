@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cloverclc.dao.DepartmentDao">
+    <update id="migrateEmpWhenDeptDelete">
+        UPDATE emp
+        SET
+            original_deptno = #{deptno}, -- 记录原部门编号
+            deptno = #{unAssignDeptno} -- 改为未分配部门编号
+        WHERE deptno = #{deptno}; -- 筛选指定部门下的员工
+    </update>
+    <select id="getAllDeptStatistics" resultType="cn.cloverclc.model.vo.DeptStatisticsVO">
+        SELECT
+            e.deptno,
+            d.dname,
+            COUNT(e.empno) AS empTotal,
+            SUM(e.sal) AS totalSal,
+            ROUND(AVG(e.sal), 2) AS avgSal,
+            MAX(e.sal) AS maxSal,
+            MIN(e.sal) AS minSal,
+            SUM(COALESCE(e.comm, 0)) AS totalComm,
+            COUNT(CASE WHEN e.status = '在职' THEN 1 END) AS onDutyTotal,
+            COUNT(CASE WHEN e.job IN ('经理', '总裁') THEN 1 END) AS managerTotal
+        FROM emp e
+                 LEFT JOIN dept d ON e.deptno = d.deptno
+        <where>
+
+            <if test="deptno != null">
+                e.deptno = #{deptno}
+            </if>
+        </where>
+        GROUP BY e.deptno, d.dname
+        ORDER BY e.deptno
+    </select>
+</mapper>

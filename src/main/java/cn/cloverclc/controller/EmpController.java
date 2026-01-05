@@ -48,7 +48,7 @@ public class EmpController {
 
     }
 
-    @PutMapping("/del/{id}")
+    @PostMapping("/del/{id}")
     @LogRecord
     public Result<Void> delEmp(@PathVariable Integer id) {
         boolean result = empService.removeById(id);
@@ -58,7 +58,7 @@ public class EmpController {
         return Result.error("删除失败");
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     @LogRecord
     public Result<Void> updateEmp(@RequestBody Employee emp) {
         boolean result = empService.updateById(emp);
@@ -73,6 +73,14 @@ public class EmpController {
     public Result<IPage<Employee>> getEmpPage(@RequestParam(defaultValue = "1") Integer current,
                                               @RequestParam(defaultValue = "10") Integer size) {
         IPage result = empService.selectEmployeePage(current, size);
+        return Result.success(result);
+    }
+    @GetMapping("/bydept")
+    @LogRecord
+    public Result<IPage<Employee>> getEmpByDept(@RequestParam(defaultValue = "1") Integer current,
+                                                @RequestParam(defaultValue = "10") Integer size,
+                                                @RequestParam Integer deptno){
+        IPage result = empService.selectDeptPage(current, size,deptno);
         return Result.success(result);
     }
 

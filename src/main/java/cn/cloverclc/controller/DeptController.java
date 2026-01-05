@@ -1,9 +1,12 @@
 package cn.cloverclc.controller;
 
+import cn.cloverclc.annotation.LogRecord;
 import cn.cloverclc.model.entity.Department;
+import cn.cloverclc.model.vo.DeptStatisticsVO;
 import cn.cloverclc.service.DeptService;
 import cn.cloverclc.common.Result;
 
+import cn.cloverclc.service.Impl.DeptServiceImpl;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,30 +17,29 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8081")
 public class DeptController {
     @Resource
-    private DeptService deptService;
-    @GetMapping
-    public Result<List<Department>> listAll(){
-        List<Department> departmentsList = deptService.findAll();
-        return Result.success(departmentsList);
+    private DeptServiceImpl deptService;
+    @GetMapping("/DeptStatistics")
+    public Result<List<DeptStatisticsVO>> getDeptStatisticsVO( @RequestParam(value = "id", required = false) Integer id) {
+        List<DeptStatisticsVO> list = deptService.getAllDeptStatistics(id);
+        return Result.success(list);
     }
-    @GetMapping("/{id}")
-    public Result<Department> getById(@PathVariable int id){
-        Department department = deptService.findById(id);
-        return Result.success(department);
-    }
+
     @PostMapping("/add")
-    public Result<Integer> add(@RequestBody Department dept){
-        Integer result = deptService.insert(dept);
-        return Result.success(result);
+    public Result<Void> add(@RequestBody Department dept){
+        boolean result = deptService.save(dept);
+        if(result){
+            return Result.success();
+        }
+        return Result.error("添加失败");
     }
-    @PutMapping("/update")
-    public Result<Integer> update(@RequestBody Department dept){
-        Integer result = deptService.update(dept);
-        return Result.success(result);
-    }
-    @DeleteMapping("/del/{id}")
-    public Result<Integer> delete(@PathVariable int id){
-        Integer result = deptService.delete(id);
-        return Result.success(result);
+
+    @PutMapping("/del/{id}")
+    @LogRecord
+    public Result delDept(@PathVariable Integer id) {
+        boolean result = deptService.deleteByDept(id);
+        if (result) {
+            return Result.success();
+        }
+        return Result.error("删除失败");
     }
 }

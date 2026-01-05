@@ -41,11 +41,12 @@ public class Employee {
     private EmergencyContact contact;
     @TableLogic
     private Boolean deleted;
+    private Integer original_deptno;
 
-    @TableField(exist = false)
-    private String dname;
-    @TableField(exist = false)
-    private String subordinate;
-    @TableField(exist = false)
-    private Integer salgrade;
+//    @TableField(exist = false)
+//    private String dname;
+//    @TableField(exist = false)
+//    private String subordinate;
+//    @TableField(exist = false)
+//    private Integer salgrade;
 }

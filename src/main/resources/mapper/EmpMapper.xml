@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cloverclc.dao.EmployeeDao">
-
-    <resultMap id="EmployeeVOMap" type="cn.cloverclc.model.vo.EmployeeVO">
-        <id column="empno" property="empno"/>
-        <result column="name" property="name"/>
-        <result column="dname" property="dname"/>
-        <result column="totalIncome" property="totalIncome"/>
-        <result column="salgrade" property="salgrade"/>
-        <result column="contactInfo" property="contactInfo"/>
-        <result column="subordinateNames" property="subordinateNames" typeHandler="cn.cloverclc.handler.StringListTypeHandler"/>
-    </resultMap>
-    <select id="selectEmployeePage" resultMap="EmployeeVOMap" >
+    <select id="selectEmployeePage" resultType="cn.cloverclc.model.vo.EmployeeVO" >
         SELECT
             e.empno AS empno,
             e.ename AS name,
@@ -35,5 +25,25 @@
             WHERE e.deleted = FALSE
         GROUP BY e.empno, e.ename, d.dname, s.grade, e.mobile, e.emergency_contact
         ORDER BY e.empno
+    </select>
+    <select id="selectEmployeeByDept" resultType="cn.cloverclc.model.vo.DeptVO">
+        SELECT
+            e.ename AS empName, -- 员工姓名
+            e.job AS job, -- 员工职位
+            e.hiredate AS hiredate, -- 雇佣时间
+            -- 联系方式：优先取手机号，手机号为空则取紧急联系人（兼容JSON格式）
+            CASE
+                WHEN e.mobile IS NOT NULL AND e.mobile != '' THEN e.mobile
+                ELSE e.emergency_contact ->> 'phone'
+                END AS contactInfo,
+            m.ename AS managerName -- 上级员工姓名（自连接关联）
+        FROM emp e
+                 -- 自连接：关联上级员工（e.mgr = m.empno，e是员工，m是上级）
+                 LEFT JOIN emp m ON e.mgr = m.empno
+        -- 按部门筛选（传入部门编号）
+        WHERE e.deptno = #{deptno}
+          -- 排除无效数据（可选，根据业务需求调整）
+          AND e.ename IS NOT NULL
+        ORDER BY e.empno ASC
     </select>
 </mapper>
