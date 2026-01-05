@@ -3,8 +3,6 @@ package cn.cloverclc.model.entity;
 import cn.cloverclc.handler.EmpStatusTypeHandler;
 import cn.cloverclc.handler.JsonbTypeHandler;
 import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

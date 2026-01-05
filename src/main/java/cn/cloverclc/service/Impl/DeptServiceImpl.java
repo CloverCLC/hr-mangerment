@@ -1,6 +1,5 @@
 package cn.cloverclc.service.Impl;
 
-import cn.cloverclc.annotation.LogRecord;
 import cn.cloverclc.dao.DepartmentDao;
 import cn.cloverclc.model.entity.Department;
 import cn.cloverclc.model.vo.DeptStatisticsVO;
@@ -9,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
+
 import java.util.List;
 
 @Service
@@ -40,7 +39,6 @@ public class DeptServiceImpl extends ServiceImpl<DepartmentDao, Department> impl
 
     @Override
     public List<DeptStatisticsVO> getAllDeptStatistics(Integer deptno) {
-        List<DeptStatisticsVO> deptStatisticsVO = this.baseMapper.getAllDeptStatistics(deptno);
-        return deptStatisticsVO;
+        return this.baseMapper.getAllDeptStatistics(deptno);
     }
 }

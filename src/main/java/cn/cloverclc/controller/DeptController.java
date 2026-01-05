@@ -3,12 +3,9 @@ package cn.cloverclc.controller;
 import cn.cloverclc.annotation.LogRecord;
 import cn.cloverclc.model.entity.Department;
 import cn.cloverclc.model.vo.DeptStatisticsVO;
-import cn.cloverclc.service.DeptService;
 import cn.cloverclc.common.Result;
-
 import cn.cloverclc.service.Impl.DeptServiceImpl;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class DeptController {
 
     @PutMapping("/del/{id}")
     @LogRecord
-    public Result delDept(@PathVariable Integer id) {
+    public Result<Void> delDept(@PathVariable Integer id) {
         boolean result = deptService.deleteByDept(id);
         if (result) {
             return Result.success();

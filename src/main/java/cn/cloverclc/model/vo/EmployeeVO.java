@@ -2,7 +2,6 @@ package cn.cloverclc.model.vo;
 
 import cn.cloverclc.handler.StringListTypeHandler;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
